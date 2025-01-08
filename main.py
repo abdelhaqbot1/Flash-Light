@@ -8,23 +8,14 @@ def main(page: Page):
 
     flashlight = Flashlight()
     page.overlay.append(flashlight)
-
-    ph = PermissionHandler()
-    page.overlay.append(ph)
-    
-    def open_ph(e):
-        ph.open_app_settings()
-
     page.add(
 
         AppBar(
             title= Text('Flash Light'),
             color= 'white',
-            bgcolor= colors.BLUE_300,
-            actions=[
-                IconButton(icons.SETTINGS,on_click=open_ph)
-            ]
+            bgcolor= colors.BLUE_300,)
         ),
+    
         Row([
             Text('\n\nFlash Light',size=30,color='black')
         ],alignment=MainAxisAlignment.CENTER),
