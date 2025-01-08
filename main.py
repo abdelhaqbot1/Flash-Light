@@ -1,5 +1,4 @@
 from flet import *
-from flet import Flashlight
 
 def main(page: Page):
     page.title = "Flash Light"
@@ -10,6 +9,11 @@ def main(page: Page):
     flashlight = Flashlight()
     page.overlay.append(flashlight)
 
+    ph = PermissionHandler()
+    page.overlay.append(ph)
+    
+    def open_ph(e):
+        ph.open_app_settings()
 
     page.add(
 
@@ -18,7 +22,7 @@ def main(page: Page):
             color= 'white',
             bgcolor= colors.BLUE_300,
             actions=[
-                IconButton(icons.SETTINGS,)
+                IconButton(icons.SETTINGS,on_click=open_ph)
             ]
         ),
         Row([
@@ -26,7 +30,7 @@ def main(page: Page):
         ],alignment=MainAxisAlignment.CENTER),
 
         Row([
-            Image(src="./logo.png",width=260,height=260)
+            Image(src="./logo.png",width=26)
         ],alignment=MainAxisAlignment.CENTER),
 
         Row([
