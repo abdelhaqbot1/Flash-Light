@@ -1,4 +1,5 @@
 from flet import *
+from flet import Flashlight
 
 def main(page: Page):
     page.title = "Flash Light"
@@ -8,20 +9,24 @@ def main(page: Page):
 
     flashlight = Flashlight()
     page.overlay.append(flashlight)
+
+
     page.add(
 
         AppBar(
             title= Text('Flash Light'),
             color= 'white',
-            bgcolor= colors.BLUE_300,)
+            bgcolor= colors.BLUE_300,
+            actions=[
+                IconButton(icons.SETTINGS,)
+            ]
         ),
-    
         Row([
             Text('\n\nFlash Light',size=30,color='black')
         ],alignment=MainAxisAlignment.CENTER),
 
         Row([
-            Image(src="logo.png",width=260,height=260)
+            Image(src="./logo.png",width=260,height=260)
         ],alignment=MainAxisAlignment.CENTER),
 
         Row([
